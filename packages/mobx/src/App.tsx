@@ -1,4 +1,3 @@
-import { store } from './store';
 import {
   Workspace, Computed, Tail
 } from './components';

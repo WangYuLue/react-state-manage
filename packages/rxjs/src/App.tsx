@@ -1,4 +1,3 @@
-import { Provider } from 'react-redux';
 import {
   Workspace, Computed, Tail
 } from './components';
