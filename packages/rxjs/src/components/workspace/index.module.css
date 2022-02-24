@@ -1,0 +1,44 @@
+.city-message{
+  display: flex;
+  font-size: 20px;
+  align-items: center;
+  margin: 10px;
+}
+
+.add-city{
+  margin: 0 10px;
+  width: 300px;
+}
+
+.srearch-city{
+  margin-top: 10px;
+}
+
+.srearch-city > input {
+  margin: 0 10px;
+  width: 300px;
+}
+
+.city-message-opration{
+  width: 200px;
+}
+
+.city-message-opration > button {
+  margin-right: 10px;
+}
+
+.city-message-name{
+  font-size: 20px;
+  font-weight: 600; 
+  width: 200px;
+}
+
+.city-message-weather{
+  padding: 0 10px;
+  width: 100px
+}
+
+.city-message-temperature{
+  padding: 0 10px;
+  width: 200px
+}

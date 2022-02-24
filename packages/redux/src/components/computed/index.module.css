@@ -1,0 +1,15 @@
+.computed-warpper{
+  border: 1px solid gray;
+  margin: 10px;
+  padding: 10px
+}
+
+.text-warpper{
+  display: flex;
+  align-items: center;
+  font-size: 23px;
+}
+
+.text{
+  width: 230px;
+}
