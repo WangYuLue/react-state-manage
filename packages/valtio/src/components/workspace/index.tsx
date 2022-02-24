@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, memo } from 'react';
 import { useSnapshot } from 'valtio'
 import {
   store,
@@ -21,7 +21,7 @@ import S from './index.module.css';
  * 
  * @returns 
  */
-const AddCity = () => {
+const AddCity = memo(() => {
   const snap = useSnapshot(store);
 
   const addCityRef = useRef<HTMLInputElement>(null);
@@ -49,14 +49,14 @@ const AddCity = () => {
       </button>
     </div>
   )
-}
+})
 
 /**
  * 添加城市的 UI
  * 
  * @returns 
  */
-const SearchCity = () => {
+const SearchCity = memo(() => {
   const snap = useSnapshot(store);
   return (
     <div className={S['srearch-city']}>
@@ -69,7 +69,7 @@ const SearchCity = () => {
       />
     </div>
   )
-}
+})
 
 /**
  * 展示城市详情的 UI
@@ -77,7 +77,7 @@ const SearchCity = () => {
  * @param props 
  * @returns 
  */
-const CityMessage = (props: { city: ICity }) => {
+const CityMessage = memo((props: { city: ICity }) => {
   const { city } = props;
   const [weatherloading, setWeatherLoading] = useState(false);
   const [temperatureloading, setTemperatureloading] = useState(false);
@@ -164,14 +164,14 @@ const CityMessage = (props: { city: ICity }) => {
       </div>
     </div>
   )
-}
+})
 
 /**
  * 总区域：对城市进行管理
  * 
  * @returns 
  */
-export const Workspace = () => {
+export const Workspace = memo(() => {
   const snap = useSnapshot(store);
   return (
     <div>
@@ -186,4 +186,4 @@ export const Workspace = () => {
       </div>
     </div>
   )
-}
+})

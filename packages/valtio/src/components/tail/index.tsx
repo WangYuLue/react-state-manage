@@ -1,8 +1,9 @@
+import { memo } from 'react';
 import { useSnapshot } from "valtio";
 import { store } from '../../store';
 import S from './index.module.css';
 
-const AllCityNumber = () => {
+const AllCityNumber = memo(() => {
   const snap = useSnapshot(store)
   return (
     <div className={S['text-warpper']}>
@@ -10,9 +11,9 @@ const AllCityNumber = () => {
       <div>{snap.citys.length}</div>
     </div>
   )
-}
+})
 
-const SubscribedCityNumber = () => {
+const SubscribedCityNumber = memo(() => {
   const snap = useSnapshot(store)
   return (
     <div className={S['text-warpper']}>
@@ -20,9 +21,9 @@ const SubscribedCityNumber = () => {
       <div>{snap.citys.filter(city => city.subscribe).length}</div>
     </div>
   )
-}
+})
 
-const SearchCityNumber = () => {
+const SearchCityNumber = memo(() => {
   const snap = useSnapshot(store)
   return (
     <div className={S['text-warpper']}>
@@ -30,9 +31,9 @@ const SearchCityNumber = () => {
       <div>{snap.citys.filter(city => city.name.includes(snap.keyWord)).length}</div>
     </div>
   )
-}
+})
 
-export const Tail = () => {
+export const Tail = memo(() => {
   return (
     <div className={S['tail-warpper']}>
       <AllCityNumber />
@@ -40,4 +41,4 @@ export const Tail = () => {
       <SearchCityNumber />
     </div>
   )
-}
+})

@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useSnapshot } from "valtio";
 import { store } from '../../store';
 import { IfElse } from '../utils'
@@ -6,7 +7,7 @@ import S from './index.module.css';
 /**
  * 最高温度
  */
-const MaxTemperature = () => {
+const MaxTemperature = memo(() => {
   const snap = useSnapshot(store)
   return (
     <div className={S['text-warpper']}>
@@ -14,12 +15,12 @@ const MaxTemperature = () => {
       <div>{snap.maxTemperature}</div>
     </div>
   )
-}
+})
 
 /**
  * 平均温度
  */
-const AverageTemperature = () => {
+const AverageTemperature = memo(() => {
   const snap = useSnapshot(store)
   return (
     <div className={S['text-warpper']}>
@@ -29,12 +30,12 @@ const AverageTemperature = () => {
       </IfElse>
     </div>
   )
-}
+})
 
 /**
  * 历史最高温度
  */
-const HistoryMaxTemperature = () => {
+const HistoryMaxTemperature = memo(() => {
   const snap = useSnapshot(store)
   return (
     <div className={S['text-warpper']}>
@@ -42,12 +43,12 @@ const HistoryMaxTemperature = () => {
       <div>{snap.historyMaxTemperature}</div>
     </div>
   )
-}
+})
 
 /**
  * 历史最高平均温度
  */
-const HistoryMaxAverageTemperature = () => {
+const HistoryMaxAverageTemperature = memo(() => {
   const snap = useSnapshot(store)
   return (
     <div className={S['text-warpper']}>
@@ -57,10 +58,10 @@ const HistoryMaxAverageTemperature = () => {
       </IfElse>
     </div>
   )
-}
+})
 
 
-export const Computed = () => {
+export const Computed = memo(() => {
   return (
     <div className={S['computed-warpper']}>
       <MaxTemperature />
@@ -69,4 +70,4 @@ export const Computed = () => {
       <HistoryMaxAverageTemperature />
     </div>
   )
-}
+})

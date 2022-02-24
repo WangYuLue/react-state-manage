@@ -17,7 +17,7 @@ class Store {
   }
 
   get averageTemperature() {
-    return (store.citys.reduce((res, city) => res += Number(city.temperature) || 0, 0) / store.citys.length).toFixed(1)
+    return (this.citys.reduce((res, city) => res += Number(city.temperature) || 0, 0) / this.citys.length).toFixed(1)
   }
 
   get historyMaxTemperature() {
@@ -26,7 +26,7 @@ class Store {
   }
 
   get historyMaxAverageTemperature() {
-    const average = store.citys.length ? Number(this.averageTemperature) : 0;
+    const average = this.citys.length ? Number(this.averageTemperature) : 0;
     this._historyMaxAverageTemperature = Math.max(this._historyMaxAverageTemperature, average);
     return this._historyMaxAverageTemperature;
   }
