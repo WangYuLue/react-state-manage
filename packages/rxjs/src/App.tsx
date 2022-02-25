@@ -9,6 +9,7 @@ function App() {
     <div className='App'>
       <div className="Header">
         <h1>rxjs</h1>
+        <h2>由于没有取消订阅的操作，可能有内存泄漏问题</h2>
       </div>
       <div className="Main">
         <div className="Workspace">

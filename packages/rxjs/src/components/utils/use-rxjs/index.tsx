@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 export function useRxjs<T>(target$: BehaviorSubject<T>) {
   const [data, setData] = useState<T>(
