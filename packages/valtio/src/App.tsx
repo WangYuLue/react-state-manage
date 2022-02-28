@@ -8,7 +8,7 @@ function App() {
   return (
     <div className='App'>
       <div className="Header">
-        <h1>mobx</h1>
+        <h1>valtio</h1>
       </div>
       <div className="Main">
         <div className="Workspace">
