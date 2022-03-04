@@ -1,5 +1,11 @@
 # 浅谈 React 状态管理工具
 
+市面上 react 的状态管理工具非常多，例如：redux、mobx、recoil，让接触 react 的同学目不暇接。
+
+在看这些状态管理工具的文档时，并不能有效理解这些状态管理工具的差异，更不太清楚什么时候应该用什么状态管理工具，于是出现了这篇教程。
+
+这篇教程对比了市面上主流的一些 react 状态管理工具，通过 **在一个业务场景下，用不同 react 的状态管理工具来实现**，用这种方式来对比不同工具写法上的差异，帮助读者更深入理解 react 状态管理工具。
+
 ## react 挑选状态管理时有哪些指标？
 
 - 细粒度render
@@ -36,17 +42,17 @@ vue 和 angular 的数据都是响应式的，当数据变更时，什么时候�
 
 ## react 状态管理工具
 
-### 原生 props
+### 原生 props [在线体验](https://githubbox.com/WangYuLue/react-state-manage/tree/main/packages/vanilla-props)
 
 项目越大，写起来越难受，会有 `props drilling` 问题。
 
-### 原生 context
+### 原生 context [在线体验](https://githubbox.com/WangYuLue/react-state-manage/tree/main/packages/vanilla-context)
 
 写起来很方便，但是项目一大会有性能问题，每一次对 props 的变更都会引起全局的渲染。
 
 可以用 memo 解决一部分性能问题。
 
-### redux
+### redux [在线体验](https://githubbox.com/WangYuLue/react-state-manage/tree/main/packages/redux)
 
 社区用的最多的状态管理工具，概念很多，样本代码也很多。
 
@@ -56,7 +62,7 @@ vue 和 angular 的数据都是响应式的，当数据变更时，什么时候�
 
 官方为了减少 redux 的复杂和样板代码还推出了 redux-toolkit，但是看了一样文档感觉这玩意是个四不像，不像传统的 redux，上手感觉还是很麻烦，没有上手的欲望。
 
-### rxjs
+### rxjs [在线体验](https://githubbox.com/WangYuLue/react-state-manage/tree/main/packages/rxjs)
 
 JS 领域的神器，基本可以完成状态管理中的所有功能：
 
@@ -71,7 +77,7 @@ JS 领域的神器，基本可以完成状态管理中的所有功能：
 
 所以总结是：rxjs 可以实现 状态管理 的需求，但不是最合适的选择。就像坦克可以载人，但总没有轿车来的舒服。
 
-### mobx
+### mobx [在线体验](https://githubbox.com/WangYuLue/react-state-manage/tree/main/packages/mobx)
 
 大道至简！
 
@@ -79,7 +85,7 @@ mobx 用起来最为简单，类的属性是 Observable，类的 get 方法是 C
 
 再用 observer 把组件包一下，切都是相应式的变更了。连 memo 都不要了，observer 会自动 memo，只 render 真正需要 render 的地方。
 
-### zustand
+### zustand [在线体验](https://githubbox.com/WangYuLue/react-state-manage/tree/main/packages/zustand)
 
 最近社区推崇的比较火，用起来比 redux 方便多了。但是 store 的定义比较怪异，不太适应。
 
@@ -113,7 +119,7 @@ mobx 用起来最为简单，类的属性是 Observable，类的 get 方法是 C
 
 这些状态中每个状态又都可以通过某些 action 进行状态转移，如果放在一般的编程中，需要写大量的 if-else 代码，造成维护困难。这时候可以通过有限状态机来维护这些状态，并通过可视化工具清晰的看到状态的转移路径。
 
-### valtio
+### valtio [在线体验](https://githubbox.com/WangYuLue/react-state-manage/tree/main/packages/valtio)
 
 很不错的库，使用体验和 mobx 基本一致。支持：
 
@@ -123,7 +129,7 @@ mobx 用起来最为简单，类的属性是 Observable，类的 get 方法是 C
 
 不过作者 typescript 类型推断功底不太好，有一些类型推断的 bug, 和 jotai 是同一个作者写的。
 
-### 发布订阅
+### 发布订阅 [在线体验](https://githubbox.com/WangYuLue/react-state-manage/tree/main/packages/publish-subscribe)
 
 上面 rxjs 实现的那一套，基本可以用发布订阅模式实现（管道符的实现除外）。而且也可以做到细粒度更新。
 
